@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial- =1">
+	<title>Работа №5 Знакомство с JavaScript</title>
+    <link rel="stylesheet" href="../index.css">
+    <link rel="shortcut icon" href="../gallery/Practice.svg" type="image/x-icon">
+    <script src="../gc.js"></script>
+</head>
+<body>
+<div class="work-wrapper">
+    <div class="fade-menu">
+        <button class="menu-btn  " onclick="fade()">
+        </button>
+        <div id="menu-content">
+            <div class="wrapper">
+                <div class="header onclick_header">
+                    <div class="teacher-card onclick_menu">
+                        <img src="../gallery/teacher_logo.png" alt="Portrait">
+                        <div class="teacher-text">
+                        <p class="demi-bold">Бурукина Ирина Петровна</p>
+                        <p>К.Т.Н., доцент</p>
+                        </div>
+                    </div>
+                    <div class="discipline-name">
+                        <p class="demi-bold">Основы WEB программирования</p>
+                    </div>
+                    <div class="university-name">
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="theory-column">
+                        <div class="theory-card  ">
+                            <a href="../pages/theory.html" target="_blank">
+                            <div class="card-wrapper">
+                            <p>Теория HTML, CSS, JavaScript</p>
+                            <img src="../gallery/Arrow.svg" alt="Перейти">
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="works-column">
+                        <div class="work-card  ">
+                            <a href="../pages/work_1.html">
+                            <div class="card-wrapper">
+                                <div class="inner-card">
+                                    <p>Работа №1</p>
+                                </div>
+                                <p class="about">Создание и оформление списков и таблиц в HTML</p>
+                            </div></a>
+                        </div>
+                        <div class="work-card  ">
+                            <a href="../pages/work_2.html">
+                            <div class="card-wrapper">
+                                <div class="inner-card">
+                                    <p>Работа №2</p>
+                                </div>
+                                <p class="about">Работа с изображениями в HTML</p>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="work-card ">
+                            <a href="../pages/work_3.html">
+                            <div class="card-wrapper">
+                                <div class="inner-card">
+                                    <p>Работа №3</p>
+                                </div>
+                                <p class="about">Оформление портфолио</p>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="work-card  ">
+                            <a href="../pages/work_4.html">
+                            <div class="card-wrapper">
+                                <div class="inner-card">
+                                    <p>Работа №4</p>
+                                </div>
+                                <p class="about">Навигация по сайту</p>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="work-card  ">
+                            <a href="../pages/work_5.html">
+                            <div class="card-wrapper">
+                                <div class="inner-card">
+                                    <p>Работа №5</p>
+                                </div>
+                                <p class="about">Знакомство с JavaScript</p>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+    <div class="fixed_elements">
+        <a href="../pages/theory.html" target="blank">
+        <div class="fixed_card  ">
+            <p>Теория</p>
+        </div>
+        </a>
+    </div>
+    
+    <div class="content-work">
+        <div class="content-work-header">
+            <p id="work-number" class="demi-bold">Работа №5</p>
+            <p id="work-title">Знакомство с JavaScript</p>
+        </div>
+        <div class="content-work-about">
+            <div class="paragraph">
+                <div class="paragraph-header">
+                    <p class="header-text demi-bold" >Цель работы</p>
+                </div>
+                <div class="paragraph-about">
+                    <p>Познакомиться с JavaScript, научиться внедрять его на сайт.</p>
+                </div>
+            </div>
+            <div class="paragraph">
+                <div class="paragraph-header">
+                    <p class="header-text demi-bold" >Задание</p>
+                </div>
+                <div class="paragraph-about">
+                    <p>Добавьте 7 скриптов на JavaScript, которые сделают сайт более динамичным. Объясните работу всех скриптов преподавателю.</p>
+                </div>
+            </div>
+            <div class="paragraph">
+                <div class="paragraph-header">
+                    <p class="header-text demi-bold" id="first_task" >Подключение JavaScript</p>
+                </div>
+                <div class="paragraph-about">
+                    <p>Добавьте перед закрывающим тегом </body> в index.html.</p>
+                    <p>&lt;script src="scripts.js"&gt;&lt;/script&gt;</p>
+                    <p>Создайте файл scripts.js и добавьте в него скрипты.</p>
+                </div>
+            </div>
+            <div class="paragraph">
+                <div class="paragraph-header">
+                    <p class="header-text demi-bold" id="second_task">Примеры скриптов</p>
+                </div>
+                <div class="paragraph-about">
+                    <p>Ниже приведены примеры скриптом. Внедрите их в свое порфолио. Добавьте еще два скрипта самостоятельно.</p>
+                    <h3>Плавная прокрутка к секциям</h3>
+                    <p>В прошлой лабораторной работе прокрутка была реализована с помощью CSS scroll-behavior: smooth. Реализуем теперь ее с помощью JavaScript. Такая прокрутка будет больше контролироваться, можно настроить скорость, отступы и другие параметры.</p>
+                    <pre><code>document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault(); // Отменяем стандартное поведение
+        const targetId = link.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        // Плавная прокрутка
+        targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
+});</code></pre>
+                </div>
+
+<div class="paragraph-about">
+                    <h3>Анимация секций</h3>
+                    <pre><code>dwindow.addEventListener('scroll', () => {
+    document.querySelectorAll('section').forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < window.innerHeight - 100) {
+            section.classList.add('visible');
+        }
+    });
+});</code></pre>
+                </div>
+
+                <div class="paragraph-about">
+                    <h3>Темная тема</h3>
+                    <pre><code>document.getElementById('theme-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    const btn = document.getElementById('theme-toggle');
+    btn.textContent = document.body.classList.contains('dark-theme') 
+        ? 'Светлая тема' 
+        : 'Тёмная тема';
+});</code></pre>
+                </div>
+
+                <div class="paragraph-about">
+                    <h3>Случайный совет при загрузке</h3>
+                    <pre><code>const tips = [
+    'Обновляйте портфолио раз в 3 месяца',
+    'Добавляйте только лучшие работы',
+    'Указывайте сроки выполнения проектов'
+];
+console.log(`Совет: ${tips[Math.floor(Math.random() * tips.length)]}`);</code></pre>
+                </div>
+
+                <div class="paragraph-about">
+                    <h3>Счётчик посещений</h3>
+                    <pre><code>if (!localStorage.getItem('visits')) {
+                localStorage.setItem('visits', 0);
+            }
+            let visits = parseInt(localStorage.getItem('visits')) + 1;
+            localStorage.setItem('visits', visits);
+            document.getElementById('visitCount').textContent = `Вы посетили сайт ${visits} раз`;</code></pre>
+                </div>
+
+            </div>
+                      
+            
+    </div>
+</div>
+<nav class="nav-bar">
+    <div class="progress-bar">
+        <p class="demi-bold">Задания</p>
+        <div class="progress-line">
+            <div id="progress-done"></div>
+        </div>
+    </div>
+    <div class="task-bar">
+        <form id="tasks">
+            <table>
+                <tr><td><input type="checkbox" name="task" value="yes" onclick="update()" class="task_bar-checkbox"></td><td class="td_padding"><a href="#first_task">Подключение JavaScript</a></td></tr>
+                <tr><td><input type="checkbox" name="task" value="yes" onclick="update()" class="task_bar-checkbox"></td><td class="td_padding"><a href="#second_task">Примеры скриптов</a></td></tr>
+                
+ 
+            </table>
+        </form>
+    </div>
+</nav>
+</div>
+</body>
+</html>
