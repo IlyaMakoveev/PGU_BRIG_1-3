@@ -1,0 +1,17 @@
+# Local VS Code launch and build configuration
+.vscode/
+
+# macOS metadata and C/C++ build artifacts
+.DS_Store
+*.dSYM/
+*.o
+*.obj
+*.out
+*.exe
+*.app/
+
+# Executables created next to source files by the clang task
+main
+main copy
+lb[0-9]
+lb[0-9] copy

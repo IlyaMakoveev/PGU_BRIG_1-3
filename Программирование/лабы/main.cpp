@@ -22,5 +22,4 @@ int main() {
     double speed = (vertical / 10.0) * time;
 
     printf("%f\n", speed);
-
 }
