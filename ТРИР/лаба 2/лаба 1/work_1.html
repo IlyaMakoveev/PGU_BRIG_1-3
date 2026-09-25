@@ -2,14 +2,19 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8" />
+
 <title>Работа №1 - Туризм и путешествия</title>
 <style>
   body {
+    overflow:scroll;
+    background-image: url("./bg.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     font-family: Arial;
     max-width: 1000px;
     margin: 40px auto;
     color: #111111;
-    background-color: #ffffff;
   }
  
   h1 { font-size: 26px; }
@@ -31,12 +36,13 @@
     margin-bottom: 6px;
   }
   ul.naprav li::before {
-    content: "> ";
+    padding: 5px;
+    content: ">";
     font-weight: bold;
   }
  
   .packing li { 
-    margin-bottom: 4px; 
+    margin-bottom: 7px;
   }
   .categor {
     font-weight: bold;
@@ -44,7 +50,7 @@
     margin-top: 5px;
     margin-bottom: 5px;
   }
- 
+
   table {
     border-collapse: collapse;
     width: 100%;
@@ -63,15 +69,62 @@
   tr:nth-child(even) {
     background: #f2f2f2;
   }
+
+  .ssylki {
+    color: #fff;
+    margin: 37px;
+    transition: filter 0.2s ease;
+  }
+
+  .ssylki:hover {
+    filter: invert(100%);
+  }
+
+  .icon{
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 8px;
+    transition: filter 0.2s ease;
+
+  }
+
+  .icon:hover{
+    filter: invert(100%);
+  }
+
+
 </style>
 </head>
 
 <body>
- 
-<h1>Куда лететь и что взять с собой</h1>
- 
-<h2>Лучшие направления</h2>
+<div style="background: #2b6777; color: #fff; padding: 12px;">
+  <a href="https://www.aviasales.ru" target="_blank" style="text-decoration: none;">
+    <svg class="icon">
+        <image href="https://sergeychikin.ru/365/028-transport/air/plane.svg" width="30" height="30" filter="invert(1)"/>
+    </svg>
+  </a>
+  <b style="vertical-align: middle;">Туризм и путешествия</b>
+  <span style="float: right; margin-right: 12px;"></span>
+    <a href="#napravleniya" class="ssylki">Направления</a>
+    <a href="#packing" class="ssylki">Что взять</a>
+    <a href="#hotels" class="ssylki">Отели</a>
+    <a href="#transport" class="ssylki">Транспорт</a>
+    <a href="#gallery" class="ssylki">Галерея</a>
+  </span>
+</div>
 
+<h1>Куда лететь и что взять с собой</h1>
+
+<div align="center">
+    <a href="https://travel.yandex.ru/" target="_blank">
+        <img src="./panorama.jpeg" style="border: 3px solid grey; border-radius: 10px; " width="1000px" alt="Фото красивого пейзажа">
+    </a>
+</div>
+
+<h2 id="napravleniya">Лучшие направления</h2>
+
+<div align="center"><img src="../images/kuda_poehat.jpg" style="filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));" width="1000px" alt="Фото красивого пейзажа"></div>
 <ul class="naprav">
   <li>Париж, Франция - символ романтики, искусства и моды.</li>
   <li>Рим, Италия - город на семи холмах с античными памятниками.</li>
@@ -80,8 +133,9 @@
   <li>Лиссабон, Португалия - баланс старинных улочек, фаду и современной атмосферы.</li>
   <li>Амстердам, Нидерланды - город каналов, свободы и ветряных мельниц.</li>
 </ul>
- 
-<h2>Что взять с собой</h2>
+
+<h2 id="packing">Что взять с собой</h2>
+<div align="center"><img src="https://drydry.ru/upload/medialibrary/cc4/rkdkkzgve850zzxpj2s9wux94on6f3px.jpg" width="900px" alt="Фото красивого пейзажа"></div>
 <ul class="packing">
   <li>
     <span class="categor">Документы</span>
@@ -105,18 +159,20 @@
     </ol>
   </li>
 </ul>
- 
-<h2>Где остановиться</h2>
+
+<h2 id="hotels">Где остановиться</h2>
 
 <table>
+
     <tr>
       <th>Регион</th>
       <th>Город, страна</th>
       <th>Отель</th>
       <th>Цена / ночь</th>
     </tr>
+
     <tr>
-      <td>Россия</td>
+      <td class="ya">Россия</td>
       <td>Москва</td>
       <td>Элеон</td>
       <td>25 000 ₽</td>
@@ -154,7 +210,7 @@
     </tr>
 </table>
  
-<h2>На чём добираться</h2>
+<h2 id="transport">На чём добираться</h2>
 
 <table>
     <tr>
@@ -163,6 +219,7 @@
       <th>Скорость</th>
       <th>Комфорт</th>
     </tr>
+
     <tr>
       <td>Самолёт</td>
       <td>от 3 000 ₽ лоукостом, 5 000–15 000 ₽ по РФ</td>
@@ -203,5 +260,14 @@
     <td colspan="4">Для скорости - самолёт или «Сапсан», для бюджета - плацкарт, для отдыха ради пути - круиз.</td>
   </tr>
 </table>
+
+<h2 id="gallery">Галерея</h2>
+<table align="center">
+  <tr><img src="../images/Frame 1.png" width="250px" alt="Фото красивого пейзажа"></tr>
+  <tr><img src="../images/Frame 2.png" width="250px" alt="Фото красивого пейзажа"></tr>
+  <tr><img src="../images/Frame 3.png" width="250px" alt="Фото красивого пейзажа"></tr>
+  <tr><img src="../images/Frame 4.png" width="250px" alt="Фото красивого пейзажа"></tr>
+</table>
 </body>
 </html>
+ 
