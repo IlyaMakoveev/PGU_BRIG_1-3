@@ -44,6 +44,10 @@ int main() {
 
     if (s1 == 0 || s2 == 0 || s3 == 0 || s4 == 0) {printf("Неявка на экзамен \n");}
 
+    if (s1 == 0 && s2 == 0 && s3 == 0 && s4 == 0) {printf("Группа на отчисление \n");}
+
+    if (s1 == 100 && s2 == 100 && s3 == 100 && s4 == 100) {printf("Группа на поощрение \n");}
+
     int ave_grade = ceil((s1 + s2 + s3 + s4) / 4.0 / 20.0);
 
     switch (ave_grade){
@@ -56,6 +60,7 @@ int main() {
         case 3:
             printf("Удовлетворительная группа \n");
             break;
+        case 0:
         case 1:
         case 2:
             printf("Слабая группа \n");
