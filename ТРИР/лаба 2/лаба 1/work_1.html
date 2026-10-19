@@ -7,7 +7,7 @@
 <style>
   body {
     overflow:scroll;
-    background-image: url("./bg.png");
+    background-image:  url("./bg.png");
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -16,7 +16,7 @@
     margin: 40px auto;
     color: #111111;
   }
- 
+
   h1 { font-size: 26px; }
 
   h2 {
@@ -25,7 +25,7 @@
     padding-bottom: 4px;
     margin-top: 40px;
   }
- 
+
   ul.naprav {
     list-style: none;
     padding-left: 0;
@@ -35,15 +35,17 @@
     padding-left: 22px;
     margin-bottom: 6px;
   }
+
   ul.naprav li::before {
     padding: 5px;
     content: ">";
     font-weight: bold;
   }
- 
-  .packing li { 
+
+  .packing li {
     margin-bottom: 7px;
   }
+
   .categor {
     font-weight: bold;
     display: block;
@@ -94,6 +96,8 @@
   }
 
 
+
+
 </style>
 </head>
 
@@ -111,7 +115,6 @@
     <a href="#hotels" class="ssylki">Отели</a>
     <a href="#transport" class="ssylki">Транспорт</a>
     <a href="#gallery" class="ssylki">Галерея</a>
-  </span>
 </div>
 
 <h1>Куда лететь и что взять с собой</h1>
@@ -139,7 +142,7 @@
 <ul class="packing">
   <li>
     <span class="categor">Документы</span>
-    <ol>
+    <ol class="step-list">
       <li>Паспорт - заграничный для выезда за границу, внутренний для поездок по России.</li>
       <li>Билеты - электронные можно хранить на телефоне, бумажные лучше распечатать.</li>
       <li>Медицинская страховка - особенно важна за границей.</li>
@@ -163,7 +166,6 @@
 <h2 id="hotels">Где остановиться</h2>
 
 <table>
-
     <tr>
       <th>Регион</th>
       <th>Город, страна</th>
@@ -173,14 +175,17 @@
     </tr>
 
     <tr>
-      <td class="ya">Россия</td>
+      <td>Россия</td>
       <td>Москва</td>
       <td>Элеон</td>
       <td>25 000 ₽</td>
       <td style="text-align: center;"><img src="../images/eleon.jpg" width="80px" alt="Элеон"></td>
     </tr>
     <tr>
-      <td rowspan="6">Европа</td>
+      <td class="a" rowspan="6">
+          <span class="aa">Европа</span>
+          <span class="aaa">Азия</span>
+      </td>
       <td>Париж, Франция</td>
       <td>Charmant Reve</td>
       <td>32 000 ₽</td>
@@ -217,7 +222,7 @@
       <td style="text-align: center;"><img src="../images/canal.jpg" width="80px" alt="Canal Breeze"></td>
     </tr>
 </table>
- 
+
 <h2 id="transport">На чём добираться</h2>
 
 <table>
@@ -280,4 +285,3 @@
 </table>
 </body>
 </html>
- 
