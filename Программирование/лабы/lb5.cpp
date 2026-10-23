@@ -23,6 +23,9 @@ int main() {
         mecyacy++;
         summa += popoln;
         procents =   summa * r / 1200.0;
+        if (mecyacy > 12) {
+            procents *= 0.95;
+        }
         summa += procents;
         if (procents >= 1) {
             c++;
