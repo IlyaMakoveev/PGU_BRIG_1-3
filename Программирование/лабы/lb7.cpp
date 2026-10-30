@@ -1,22 +1,57 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 int main() {
-    char input[100];
-    char *words[50];
-    int count = 0;
+    char st[50];
+    printf("Введите команду: ");
+    fgets(st, sizeof(st), stdin);
 
-    if (fgets(input, sizeof input, stdin) == NULL)
-        return 1;
+    printf("%s", st);
 
-    for (char *w = strtok(input, " \n"); w != NULL && count < 50; w = strtok(NULL, " \n"))
-        words[count++] = w;
+    char* words = strtok(st, " ");
+
+    char deystv[10] = "";
+
+    char* params[10];
+    char result[256]; 
     
-    printf("%s", input);
+    result[0] = '\0'; 
 
-    for (int i = 0; i < count; i++)
-        printf("[%s]\n", words[i]);
+    short len_params = 0;
 
+    short c = 0;
+
+    while (words != NULL) {
+        if (strcmp(deystv, "") == 0){
+            strcpy(deystv, words);
+        }
+        else {
+            params[c] = words;
+            c++;
+        }
+        words = strtok(NULL, " ");
+    }
+    if (strcmp(deystv, "move") == 0 || strcmp(deystv, "open") == 0 || strcmp(deystv, "close") == 0 || strcmp(deystv, "stop") == 0) {
+        printf("Действие: %s\n", deystv);
+        if (c > 0) {
+            for (int i = 0; i < c; i++) {
+                strcat(result, params[i]); 
+                len_params += strlen(params[i]);
+                if (i < c - 1) {
+                    strcat(result, " ");
+                }
+            }
+            printf("Параметры:%s\n", result);
+            printf("Длина параметров: %d\n", len_params-1);
+            printf("Колличество параметров: %d\n", c);
+            printf("Команда выполнена успешно\n"); 
+        }        
+    }
+    else {
+        printf("Ошибка: неизвестное действие\n");
+    }
+
+
+    getchar();
     return 0;
 }

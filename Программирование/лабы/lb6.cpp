@@ -3,33 +3,50 @@
 #include <time.h>  
 
 int main() {
-
     srand(time(NULL));
-    int experience[8][5];
 
+    int experience[8][5] = {
+        {45, 60, 30, 80, 55},
+        {70, 15, 90, 40, 65},
+        {10, 35, 95, 20, 75},
+        {50, 40, 10, 60, 85},
+        {90, 85, 100, 70, 95},
+        {20, 30, 25, 45, 35},
+        {60, 55, 18, 75, 50},
+        {80, 65, 90, 85, 100}
+    };
     int* p1 = &experience[0][0];
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 5; j++) {
-            *(p1 + i * 5 + j) = 10 + rand() % 91;
-        }
-    }
     
     int bonus[5];
-
     int* p2 = bonus;
     for (int j = 0; j < 5; j++){
         *(p2 + j) = 1 + rand() % 20;
     }
 
-    int itog[8] = {0, 0, 0, 0, 0, 0, 0, 0};
-    int prohi[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+    
+    int min_b = 1000;
+    int min_bonus_level = -1; 
 
+    for (int j = 0; j < 5; j++) { 
+        if (*(p2 + j) < min_b) {
+            min_b = *(p2 + j);
+            min_bonus_level = j;
+        }
+    }
+
+    int itog[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+    
+   
+    int failed_level[8] = {-1, -1, -1, -1, -1, -1, -1, -1}; 
+    int prohi[8] = {0, 0, 0, 0, 0, 0, 0, 0}; 
     int* p3 = itog;
     int* p4 = prohi;
+
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 5; j++) {
             if (*(p1 + i*5 + j) < 20) {
                 *(p3 + i) = 0;
+                failed_level[i] = j; 
                 break;
             }
             else { 
@@ -38,7 +55,6 @@ int main() {
             }
         }
     }
-
 
     int max[2] = {-1, 0};
     int *p5 = max;
@@ -58,16 +74,14 @@ int main() {
         }
     }
 
-
-
-
     printf("+--------------------------------------+\n");
     printf("| Таблица Результатов                  |\n");
     printf("|--------------------------------------|\n");
+    printf("  Минимальный бонус был на уровне %d (%d)\n", min_bonus_level + 1, min_b);
+    printf("|--------------------------------------|\n");
     if (*(p5 + 1) != 0) {
         printf("| Максимальный итог: %-4d ( Герой №%-2d) |\n", *p5, *(p5 + 1));
-    }
-    else {
+    } else {
         printf("| Победитель не определён              |\n");
     }
     printf("|--------------------------------------|\n");
@@ -76,9 +90,15 @@ int main() {
     }
     printf("|--------------------------------------|\n");
     printf("| Итоговые значения по игрокам:        |\n");
+    
     for (int i = 0; i < 8; i++) {
         if (*(p3 + i) == 0){
-            printf("| Герой № %d не прошел уровень          |\n", i+1);
+            if (failed_level[i] == min_bonus_level) { 
+                printf("| Герой № %d дисквалифицирован          |\n", i+1);
+            } 
+            else {
+                printf("| Герой № %d не прошел уровень %d        |\n", i+1, failed_level[i] + 1);
+            }
         }
         else{
             printf("| Герой № %d, очки: %-19d |\n", i+1, *(p3 + i));
