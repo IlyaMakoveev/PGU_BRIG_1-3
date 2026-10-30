@@ -1,61 +1,117 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>  
 
 int main() {
-    int experience[8][5];
-    int* exp_ptr = &experience[0][0];
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 5; j++) {
-            *(exp_ptr + i * 5 + j) = (rand() % 91) + 10;
-        }
-    };
+
+    // srand(time(NULL));
+    // int experience[8][5];
+
+    // for (int i = 0; i < 8; i++) {
+    //     for (int j = 0; j < 5; j++) {
+    //         *(p1 + i * 5 + j) = 10 + rand() % 91;
+    //     }
+    // }
     
-    int bonus[5];
-    int* bon_ptr = &bonus[0];
-    for (int i = 0; i < 5; i++) {
-        *(bon_ptr + i) = (rand() % 20) + 1;
+    // int bonus[5];
+
+    int experience[8][5] = {
+        {45, 60, 30, 80, 55},
+        {70, 15, 90, 40, 65},
+        {10, 35, 95, 20, 75},
+        {50, 40, 10, 60, 85},
+        {90, 85, 100, 70, 95},
+        {20, 30, 25, 45, 35},
+        {60, 55, 18, 75, 50},
+        {80, 65, 90, 85, 100}
+    };
+    int* p1 = &experience[0][0];
+    
+    int bonus[5] = {1, 5, 10, 15, 20};
+
+    int* p2 = bonus;
+    for (int j = 0; j < 5; j++){
+        *(p2 + j) = 1 + rand() % 20;
     }
 
+    int min_b = 100000;
+
+    for (int i = 0; i < 5; i++) {
+        if (*(p2 + i) < min_b) {
+            min_b = *(p2 + i);
+        }
+    }
+
+
     int itog[8] = {0, 0, 0, 0, 0, 0, 0, 0};
-    int* itg_ptr = &itog[0];
     int prohi[8] = {0, 0, 0, 0, 0, 0, 0, 0};
-    int* phr_ptr = &prohi[0];
+
+    int* p3 = itog;
+    int* p4 = prohi;
 
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 5; j++) {
-            if (*(exp_ptr + i * 5 + j) < 20) {
+            if (*(p1 + i*5 + j) < 20) {
+                *(p3 + i) = 0;
+            
                 break;
             }
             else { 
-                *(itg_ptr + i) += *(exp_ptr + i * 5 + j) + *(bon_ptr + j);
-                (*(phr_ptr + i))++;
+                *(p3 + i) += *(p1 + i*5 + j) + bonus[j];
+                (*(p4 + i))++;
             }
         }
     }
 
+
     int max[2] = {-1, 0};
-    int *max_ptr = &max[0];
+    int *p5 = max;
     for (int i = 0; i < 8; i++) {
-        if (*(itg_ptr + i) > *(max_ptr) && *(phr_ptr + i) == 5) {
-            *(max_ptr) = *(itg_ptr + i);
-            *(max_ptr + 1) = i + 1;
+        if (*(p3 + i) > *p5 && *(p4 + i) == 5) {
+            *p5 = *(p3 + i);
+            *(p5 + 1) = i + 1;
         }
     }
+
+    int min[2] = {1000, 0};
+    int *p6 = min;
+    for (int i = 0; i < 8; i++) {
+        if (*(p3 + i) < *p6 && *(p4 + i) == 5) {
+            *p6 = *(p3 + i);
+            *(p6 + 1) = i + 1;
+        }
+    }
+
+
+
 
     printf("+--------------------------------------+\n");
     printf("| Таблица Результатов                  |\n");
     printf("|--------------------------------------|\n");
-    if (*(max_ptr + 1) != 0) {
-        printf("| Максимальный итог: %-4d ( Герой №%-2d) |\n", *(max_ptr), *(max_ptr + 1));
+    if (*(p5 + 1) != 0) {
+        printf("| Максимальный итог: %-4d ( Герой №%-2d) |\n", *p5, *(p5 + 1));
     }
     else {
         printf("| Победитель не определён              |\n");
     }
     printf("|--------------------------------------|\n");
+    if (*(p6 + 1) != 0) {
+        printf("| Минимальный итог: %-4d ( Герой №%-2d)  |\n", *p6, *(p6 + 1));
+    }
+    printf("|--------------------------------------|\n");
     printf("| Итоговые значения по игрокам:        |\n");
     for (int i = 0; i < 8; i++) {
-        printf("| Герой № %d, очки: %-19d |\n", i+1, *(itg_ptr + i));
+    if (*(p3 + i) == 0) {
+        int fail = *(p4 + i);   // индекс уровня, на котором герой провалился
+        if (*(p2 + fail) == min_b) {
+            printf("| Герой № %d дисквалифицирован          |\n", i + 1);
+        } else {
+            printf("| Герой № %d не прошел уровень          |\n", i + 1);
+        }
+    } else {
+        printf("| Герой № %d, очки: %-19d |\n", i + 1, *(p3 + i));
     }
+}
     printf("+--------------------------------------+\n");
 
     getchar();

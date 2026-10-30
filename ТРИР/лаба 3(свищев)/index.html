@@ -10,7 +10,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+    <div id="welcomePopup" class="popup">
+      <div class="popup-content">
+        <button id="closePopup" class="close-btn">&times;</button>
+        <h2 id="greetingText">Приветствие</h2>
+        <p>Добро пожаловать в гости к Альфонсу Мухе</p>
+      </div>
+    </div>
     <header class="header">
         <a href="#hero" class="logo">Альфонс Муха</a>
         <nav class="nav">
@@ -20,6 +26,9 @@
                 <li><a href="#contact">Контакты</a></li>
             </ul>
         </nav>
+        <div class="scroll-progress-container">
+            <div class="scroll-progress-bar" id="progressBar"></div>
+        </div>
     </header>
 
     <main>
@@ -27,7 +36,7 @@
         <section id="hero" class="hero">
             <div class="hero-text">
                 <p class="hero-sub">Чешский художник, 1860–1939</p>
-                <h2> Цель моих произведений — не разрушать, а возводить мосты, так как мы все должны питать надежду, что люди сблизятся друг с другом. И это сближение будет происходить тем быстрее и проще, чем больше люди узнают друг о друге </h2>
+                <h2 id="citata"></h2>
                 <p class="hero-desc">Плакаты, иллюстрации и украшения в стиле модерн. Плавные линии, цветы и узоры.</p>
                 <a href="#work" class="btn">Смотреть работы</a>
             </div>
@@ -155,8 +164,9 @@
     <footer class="footer">
         <p>Свищев Илья Сергеевич</p>
         <p>issvishchev@gmail.com</p>
-
+        <p id="year"></p>
     </footer>
-
+    <button id="btnUp" class="btn-up">↑</button>
+    <script src="scripts.js"></script>
 </body>
 </html>
