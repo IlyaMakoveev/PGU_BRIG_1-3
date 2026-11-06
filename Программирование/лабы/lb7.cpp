@@ -31,7 +31,7 @@ int main() {
         }
         words = strtok(NULL, " ");
     }
-    if (strcmp(deystv, "move") == 0 || strcmp(deystv, "open") == 0 || strcmp(deystv, "close") == 0 || strcmp(deystv, "stop") == 0) {
+    if (strcmp(deystv, "move") == 0 || strcmp(deystv, "open") == 0 || strcmp(deystv, "close") == 0 ) {
         printf("Действие: %s\n", deystv);
         if (c > 0) {
             for (int i = 0; i < c; i++) {
@@ -47,10 +47,13 @@ int main() {
             printf("Команда выполнена успешно\n"); 
         }        
     }
+    else if (strcmp(deystv, "stop\n") == 0 ) {
+        printf("Действие: %s\n", deystv);
+        printf("Команда выполнена успешно\n"); 
+    }
     else {
         printf("Ошибка: неизвестное действие\n");
     }
-
 
     getchar();
     return 0;
